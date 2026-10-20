@@ -1,0 +1,27 @@
+
+# HTTP ingestion and retry handling
+httpx>=0.28,<1.0
+tenacity>=9.0,<10.0
+
+# Data processing and source files
+pandas>=2.2,<4.0
+pyarrow>=18.0,<25.0
+openpyxl>=3.1,<4.0
+
+# Configuration and validation
+pydantic>=2.10,<3.0
+pydantic-settings>=2.7,<3.0
+python-dotenv>=1.0,<2.0
+
+# PostgreSQL access and schema migrations
+SQLAlchemy>=2.0,<3.0
+psycopg[binary]>=3.2,<4.0
+alembic>=1.14,<2.0
+
+# SQL transformations
+dbt-core>=1.9,<2.0
+dbt-postgres>=1.9,<2.0
+
+# Public API
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.34,<1.0
