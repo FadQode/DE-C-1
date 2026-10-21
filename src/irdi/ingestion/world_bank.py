@@ -26,6 +26,7 @@ from pathlib import Path
 from irdi.config import settings
 from irdi.config import settings
 from irdi.ingestion.validation import validate_world_bank_response
+from irdi.ingestion.models import parse_world_bank_response
 import httpx
 
 RAW_DATA_DIR = Path("data/raw/world_bank")
@@ -146,6 +147,11 @@ def main() -> None:
         )
 
         data = fetch_indicator(indicator_id)
+        metadata, observations = parse_world_bank_response(data)
+        print(
+            f"Validated {len(observations)} observations "
+            f"for {indicator_id}"
+        )
         data[1][0]["value"] = None
         validate_world_bank_response(data)
         output_path = RAW_DATA_DIR / f"{name}.json"
